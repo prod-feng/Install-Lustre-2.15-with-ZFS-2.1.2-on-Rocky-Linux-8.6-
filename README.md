@@ -20,13 +20,13 @@ libuutil3-2.1.2-1.el8.x86_64.rpm   libzfs5-2.1.2-1.el8.x86_64.rpm             zf
 ```
 
 #### NB, some develepment rpm packages seem can not be found on Rocky's repositories, even on it's EPEL. 
-For example, the libmount-devel-2.32.1-35.el8.x86_64.rpm 
-and  libyaml-devel-0.1.7-5.el8.x86_64.rpm files, I could only found the here:
+For example, libmount-devel-2.32.1-35.el8.x86_64.rpm 
+and  libyaml-devel-0.1.7-5.el8.x86_64.rpm files, I could only found them here:
 https://download.rockylinux.org/pub/rocky/8/PowerTools/x86_64/kickstart/Packages/l/
-and I had to dwoload them from there manually and install locally.
+, and I had to dwoload them from there manually and install locally.
 
 ## 2 Install ZFS
-Fro ZFS, I am suing the DKMS mode:
+For ZFS, I am using the DKMS mode:
 ```text
 [root@server1 lustre]# cd ~/Downloads/zfs/
 [root@server1 lustre]# $yum localinstall zfs*.rpm lib*.rpm
@@ -34,7 +34,7 @@ Fro ZFS, I am suing the DKMS mode:
 [root@server1 lustre]# modeprobe zfs
 ```
 ## 3 Install Lustre
-For Lustre, I will also use DKMS mode. It seems the Lustre dks packages have some confilts. the 
+For Lustre, I will also use DKMS mode. It seems the Lustre dkms packages have some confilts.  
 ```text
 [root@server1 lustre]# cd ~/Downloads/lustre/
 [root@server1 lustre]# yum localinstall lustre-*
@@ -44,7 +44,7 @@ Error:
 (try to add '--skip-broken' to skip uninstallable packages or '--nobest' to use not only best candidate packages)
 ```
 
-This is strange, since I am using DKMS mode, so no reason it requires a kmod file. This can only be a mis-configuration of the rpm spec when building, and it should be able to be safely ignored. So I went with:
+This is strange, since I am using DKMS mode, so no reason it requires a kmod file. This can only be a mis-configuration of the rpm spec when it was built, and it should be able to be safely ignored. So I went with:
 
 ```text
 [root@server1 lustre]#rpm  -ivh --node-deps lustre*.rpm
@@ -52,7 +52,7 @@ This is strange, since I am using DKMS mode, so no reason it requires a kmod fil
 The install of the lustre-zfs-dkms-2.15.1-1.el8.noarch.rpm  will report error, while the dkms source and other 2 packages were installed properly.
 
 To properly install lustre-zfs-dkms-2.15.1-1.el8.noarch.rpm, your need to modify 3 files in folder  /usr/src/lustre-zfs-2.15.1/:
-dkms.conf, configure, and lustre-dkms_pre-build.sh. Please refer to https://github.com/prod-feng/Install-Lustre2.12.8-on-CentOS-7.9-2009 for more details.
+(1)dkms.conf, (2)configure, and (3)lustre-dkms_pre-build.sh. Please refer to https://github.com/prod-feng/Install-Lustre2.12.8-on-CentOS-7.9-2009 for more details.
 
 Once the installation of Lustre is done, you can check the dkms status of the zfs and lustre modules:
 ```text
