@@ -2,6 +2,8 @@
 
 Rocky Linux release 8.6 (Green Obsidian), Kernel: 4.18.0-372.19.1.el8_6.x86_64. 
 
+Lustre 2.15.1, Zfs 2.1.2.  For testing purpose, I use the new feature of dRAID(distributed RAID) for building the OST.
+
 #### For my testing purpose, I use loop devices instead of real drives; and I set the MDS/MGS and OSS on the single computer.
 
 ## 1 Download Lustre and ZFS rpm packages
@@ -75,6 +77,7 @@ root@server1 /]# zpool create -O canmount=off -o ashift=12 metapool mirror /dev/
 
 [root@server1 /]#for var in {21..29}; do losetup -o 1048576 /dev/loop${var} /opt/hd${var}.img; done
 
+### Builind OST pool uing the new dRAID
 [root@server1 /]# zpool create -O canmount=off -o ashift=12 datapool draid1:3d:1s:9c /dev/loop2[1-9]
 ```
 
