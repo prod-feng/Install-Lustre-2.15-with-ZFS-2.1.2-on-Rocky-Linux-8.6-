@@ -2,9 +2,11 @@
 
 Rocky Linux release 8.6 (Green Obsidian), Kernel: 4.18.0-372.19.1.el8_6.x86_64. 
 
-Lustre 2.15.1, Zfs 2.1.2.  For testing purpose, I use the new feature of dRAID(distributed RAID) for building the OST.
+Lustre 2.15.1, ZFS 2.1.2.  
 
-#### For my testing purpose, I use loop devices instead of real drives; and I set the MDS/MGS and OSS on the single computer.
+### For testing purpose, I use the new feature of dRAID(distributed RAID) to build the OST.
+
+#### For my testing purpose, I use loop devices instead of real block drives; and I set the MDS/MGS and OSS on a single computer.
 
 ## 1 Download Lustre and ZFS rpm packages
 Download the Lustre and ZFS rpms from https://downloads.whamcloud.com/public/lustre/lustre-2.15.1/el8.6/server/RPMS/x86_64/. Belowing are
