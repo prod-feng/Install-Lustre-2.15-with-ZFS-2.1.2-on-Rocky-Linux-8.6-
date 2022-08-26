@@ -53,7 +53,7 @@ This is strange, since the I am using DKMS mode, so no reason it requires a kmod
 The install of the lustre-zfs-dkms-2.15.1-1.el8.noarch.rpm  will report error, while the dkms source and other 2 packages were installed properly.
 
 To properly install lustre-zfs-dkms-2.15.1-1.el8.noarch.rpm, your need to modify 3 files in folder  /usr/src/lustre-zfs-2.15.1/:
-dkms.conf, configure, and lustre-dkms_pre-build.sh. Please refer https://github.com/prod-feng/Install-Lustre2.12.8-on-CentOS-7.9-2009 for more details.
+dkms.conf, configure, and lustre-dkms_pre-build.sh. Please refer to https://github.com/prod-feng/Install-Lustre2.12.8-on-CentOS-7.9-2009 for more details.
 
 Once the installation of Lustre is done, you can check the dkms status of the zfs and lustre modules:
 ```text
