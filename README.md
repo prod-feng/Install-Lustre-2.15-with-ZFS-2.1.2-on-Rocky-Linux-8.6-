@@ -77,7 +77,7 @@ root@server1 /]# zpool create -O canmount=off -o ashift=12 metapool mirror /dev/
 
 [root@server1 /]#for var in {21..29}; do losetup -o 1048576 /dev/loop${var} /opt/hd${var}.img; done
 
-### Builind OST pool uing the new dRAID
+### Builing OST pool uing the new dRAID
 [root@server1 /]# zpool create -O canmount=off -o ashift=12 datapool draid1:3d:1s:9c /dev/loop2[1-9]
 ```
 
