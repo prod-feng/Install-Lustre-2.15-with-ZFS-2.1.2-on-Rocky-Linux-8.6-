@@ -2,7 +2,7 @@
 
 Rocky Linux release 8.6 (Green Obsidian), Kernel: 4.18.0-372.19.1.el8_6.x86_64. 
 
-#### For my testing purpose, I use loop devices instead of real drives; and I set the MDS/MGS and OSS on the single computer.'
+#### For my testing purpose, I use loop devices instead of real drives; and I set the MDS/MGS and OSS on the single computer.
 
 ## 1 Download Lustre and ZFS rpm packages
 Download the Lustre and ZFS rpms from https://downloads.whamcloud.com/public/lustre/lustre-2.15.1/el8.6/server/RPMS/x86_64/. Belowing are
@@ -47,6 +47,17 @@ This is strange, since the I am using DKMS mode, so no reason it requires a kmod
 
 ```text
 [root@server1 lustre]#rpm  -ivh --node-deps lustre*.rpm
+```
+The install of the lustre-zfs-dkms-2.15.1-1.el8.noarch.rpm  will report error, while the dkms source and other 2 packages were installed properly.
+
+To properly install lustre-zfs-dkms-2.15.1-1.el8.noarch.rpm, your need to modify 3 files in folder  /usr/src/lustre-zfs-2.15.1/:
+dkms.conf, configure, and lustre-dkms_pre-build.sh. Please refer https://github.com/prod-feng/Install-Lustre2.12.8-on-CentOS-7.9-2009 for more details.
+
+Once the installation of Lustre is done, you can check the dkms status of the zfs and lustre modules:
+```text
+[root@server1 /]# dkms status
+lustre-zfs/2.15.1, 4.18.0-372.19.1.el8_6.x86_64, x86_64: installed
+zfs/2.1.2, 4.18.0-372.19.1.el8_6.x86_64, x86_64: installed
 ```
 ## 4 Set the ZFS pool 
 
