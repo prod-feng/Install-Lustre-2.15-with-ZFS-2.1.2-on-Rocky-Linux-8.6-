@@ -4,7 +4,7 @@ Rocky Linux release 8.6 (Green Obsidian), Kernel: 4.18.0-372.19.1.el8_6.x86_64.
 
 Lustre 2.15.1, ZFS 2.1.2.  
 
-### For testing purpose, I use the new feature of dRAID(distributed RAID) to build the OST.
+#### For testing purpose, I use the new feature of dRAID(distributed RAID) to build the OST.
 
 #### For my testing purpose, I use loop devices instead of real block drives; and I set the MDS/MGS and OSS on a single computer.
 
@@ -23,7 +23,7 @@ libuutil3-2.1.2-1.el8.x86_64.rpm   libzfs5-2.1.2-1.el8.x86_64.rpm             zf
 
 #### NB, some develepment rpm packages seem can not be found on Rocky's repositories, even on it's EPEL. 
 For example, libmount-devel-2.32.1-35.el8.x86_64.rpm 
-and  libyaml-devel-0.1.7-5.el8.x86_64.rpm files, I could only found them here:
+and  libyaml-devel-0.1.7-5.el8.x86_64.rpm files, I could only find them here:
 https://download.rockylinux.org/pub/rocky/8/PowerTools/x86_64/kickstart/Packages/l/
 , and I had to dwoload them from there manually and install locally.
 
@@ -51,7 +51,7 @@ This is strange, since I am using DKMS mode, so no reason it requires a kmod fil
 ```text
 [root@server1 lustre]#rpm  -ivh --node-deps lustre*.rpm
 ```
-The install of the lustre-zfs-dkms-2.15.1-1.el8.noarch.rpm  will report error, while the dkms source and other 2 packages were installed properly.
+The installation of the lustre-zfs-dkms-2.15.1-1.el8.noarch.rpm  will report error, while the dkms source and other 2 packages were installed properly.
 
 To properly install lustre-zfs-dkms-2.15.1-1.el8.noarch.rpm, your need to modify 3 files in folder  /usr/src/lustre-zfs-2.15.1/:
 (1)dkms.conf, (2)configure, and (3)lustre-dkms_pre-build.sh. Please refer to https://github.com/prod-feng/Install-Lustre2.12.8-on-CentOS-7.9-2009 for more details.
