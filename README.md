@@ -44,7 +44,7 @@ Error:
 (try to add '--skip-broken' to skip uninstallable packages or '--nobest' to use not only best candidate packages)
 ```
 
-This is strange, since the I am using DKMS mode, so no reason it requires a kmod file. This can only be a mis-configuration of the rpm spec when building, and it should be able to be safely ignored. So I went with:
+This is strange, since I am using DKMS mode, so no reason it requires a kmod file. This can only be a mis-configuration of the rpm spec when building, and it should be able to be safely ignored. So I went with:
 
 ```text
 [root@server1 lustre]#rpm  -ivh --node-deps lustre*.rpm
