@@ -61,7 +61,7 @@ Once the installation of Lustre is done, you can check the dkms status of the zf
 lustre-zfs/2.15.1, 4.18.0-372.19.1.el8_6.x86_64, x86_64: installed
 zfs/2.1.2, 4.18.0-372.19.1.el8_6.x86_64, x86_64: installed
 ```
-## 4 Set the ZFS pool 
+## 4 Build the ZFS pool using dRAID
 
 ```text
 ###For MDT
