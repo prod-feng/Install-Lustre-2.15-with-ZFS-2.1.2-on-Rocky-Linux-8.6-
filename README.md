@@ -16,8 +16,7 @@ lustre-2.15.1-1.el8.x86_64.rpm  lustre-osd-zfs-mount-2.15.1-1.el8.x86_64.rpm  lu
 
 [feng@server1 ~]$ ls Downloads/zfs/
 libnvpair3-2.1.2-1.el8.x86_64.rpm  libzpool5-2.1.2-1.el8.x86_64.rpm           zfs-dkms-2.1.2-1.el8.noarch.rpm
-libuutil3-2.1.2-1.el8.x86_64.rpm   perf-4.18.0-372.9.1.el8_lustre.x86_64.rpm
-libzfs5-2.1.2-1.el8.x86_64.rpm     zfs-2.1.2-1.el8.x86_64.rpm
+libuutil3-2.1.2-1.el8.x86_64.rpm   libzfs5-2.1.2-1.el8.x86_64.rpm             zfs-2.1.2-1.el8.x86_64.rpm
 ```
 
 #### NB, some develepment rpm packages seem can not be found on Rocky's repositories, even on it's EPEL. 
