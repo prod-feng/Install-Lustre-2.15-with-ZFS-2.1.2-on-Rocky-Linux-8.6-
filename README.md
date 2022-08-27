@@ -49,7 +49,7 @@ Error:
 This is strange, since I am using DKMS mode, so no reason it requires a kmod file. This can only be a mis-configuration of the rpm spec when it was built, and it should be able to be safely ignored. So I went with:
 
 ```text
-[root@server1 lustre]#rpm  -ivh --node-deps lustre*.rpm
+[root@server1 lustre]#rpm  -ivh --nodeps lustre*.rpm
 ```
 The installation of the lustre-zfs-dkms-2.15.1-1.el8.noarch.rpm  will report error, while the dkms source and other 2 packages were installed properly.
 
